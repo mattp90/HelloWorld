@@ -12,7 +12,6 @@ namespace AquardensUnitTest.wsCommerce
         public void Acquista()
         {
             DoLogin();
-
             var esito = CommerceClient.Acquista(SessionId, Impianto, null);
             CommerceClient.Close();
             Print(esito);

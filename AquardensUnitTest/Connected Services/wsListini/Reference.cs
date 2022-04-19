@@ -1514,7 +1514,7 @@ namespace AquardensUnitTest.wsListini {
     public interface iGestione_001 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://zitaca.com/gridservices/001/iGestione_001/SetListino", ReplyAction="http://zitaca.com/gridservices/001/iGestione_001/SetListinoResponse")]
-        AquardensUnitTest.wsListini.dcEsitoIdBox SetListino(AquardensUnitTest.wsListini.dcBaseRequest @base, AquardensUnitTest.wsListini.dcListinoCompleto listino, System.Nullable<bool> visibile);
+        dcEsitoIdBox SetListino(wsAccesso.dcBaseRequest @base, dcListinoCompleto listino, bool? visibile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://zitaca.com/gridservices/001/iGestione_001/SetListino", ReplyAction="http://zitaca.com/gridservices/001/iGestione_001/SetListinoResponse")]
         System.Threading.Tasks.Task<AquardensUnitTest.wsListini.dcEsitoIdBox> SetListinoAsync(AquardensUnitTest.wsListini.dcBaseRequest @base, AquardensUnitTest.wsListini.dcListinoCompleto listino, System.Nullable<bool> visibile);
@@ -1547,7 +1547,7 @@ namespace AquardensUnitTest.wsListini {
                 base(binding, remoteAddress) {
         }
         
-        public AquardensUnitTest.wsListini.dcEsitoIdBox SetListino(AquardensUnitTest.wsListini.dcBaseRequest @base, AquardensUnitTest.wsListini.dcListinoCompleto listino, System.Nullable<bool> visibile) {
+        public dcEsitoIdBox SetListino(wsAccesso.dcBaseRequest @base, dcListinoCompleto listino, bool? visibile) {
             return base.Channel.SetListino(@base, listino, visibile);
         }
         

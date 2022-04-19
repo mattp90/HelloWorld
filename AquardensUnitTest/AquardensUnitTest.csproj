@@ -83,6 +83,7 @@
     <Compile Include="wsAccess.cs" />
     <Compile Include="wsAccess001.cs" />
     <Compile Include="wsAnagrafica.cs" />
+    <Compile Include="wsAnagrafica001.cs" />
     <Compile Include="wsCommerce.cs" />
     <Compile Include="wsListini.cs" />
   </ItemGroup>

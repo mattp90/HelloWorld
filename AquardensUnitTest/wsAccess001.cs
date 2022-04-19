@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AquardensUnitTest.wsAccesso
 {
@@ -24,6 +25,73 @@ namespace AquardensUnitTest.wsAccesso
             {
                 Impianto = Impianto,
                 SessionId = SessionId
+            });
+            client.Close();
+            Print(esito);
+            Assert.IsNotNull(esito);
+        }
+
+        [TestMethod]
+        public void ChangePassword()
+        {
+            DoLogin001();
+            var esito = client.ChangePassword(new dcBaseRequest()
+            {
+                Impianto = Impianto,
+                SessionId = SessionId
+            }, "aquardens", "aquardensnew");
+            client.Close();
+            Print(esito);
+            Assert.IsNotNull(esito);
+        }
+
+        [TestMethod]
+        public void Register()
+        {
+            var user = new dcUser()
+            {
+                Cellulare = "111111111",
+                Cognome = "Cognome Test",
+                Email = "test@test.com",
+                Nome = "Nome test",
+                Password = "password",
+                CodiceFiscale = "",
+                DataNascita = new DateTime(1990, 1, 1),
+                UserName = "test",
+                UserType = 100
+            };
+
+            var clientInfo = new dcClientInfo()
+            {
+                Device = "smartphone",
+                OsName = "Windows",
+                OsVersion = "10.0"
+            };
+            
+            DoLogin001();
+            var esito = client.Register(new dcBaseRequest()
+            {
+                Impianto = Impianto,
+                SessionId = SessionId
+            }, user, clientInfo);
+            client.Close();
+            Print(esito);
+            Assert.IsNotNull(esito);
+        }
+
+        [TestMethod]
+        public void ConfirmRegister()
+        {
+            DoLogin001();
+            var esito = client.ConfirmRegister(new dcBaseRequest()
+            {
+                Impianto = Impianto,
+                SessionId = SessionId
+            }, new dcConfirmRequest()
+            {
+                Code = "",
+                Username = "test",
+                Type = 100
             });
             client.Close();
             Print(esito);
