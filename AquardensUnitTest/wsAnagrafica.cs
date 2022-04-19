@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using AquardensUnitTest.wsAnagrafica;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AquardensUnitTest
+namespace AquardensUnitTest.wsAnagrafica
 {
     [TestClass]
     public class Elenchi : Base

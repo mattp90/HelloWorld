@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using AquardensUnitTest.wsAccesso;
 
-namespace AquardensUnitTest
+namespace AquardensUnitTest.wsAccesso
 {
     [TestClass]
     public class Access : Base

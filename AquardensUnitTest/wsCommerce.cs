@@ -1,7 +1,6 @@
-﻿using AquardensUnitTest.wsCommerce;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AquardensUnitTest
+namespace AquardensUnitTest.wsCommerce
 {
     [TestClass]
     public class Commerce: Base
