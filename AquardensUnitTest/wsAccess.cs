@@ -11,7 +11,7 @@ namespace AquardensUnitTest.wsAccesso
         {
             var esito = DoLogin();
             Print(esito);
-            Assert.IsTrue(esito.EsitoCodice == 0);
+            Assert.IsNotNull(esito);
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace AquardensUnitTest.wsAccesso
             var esito = AccessClient.Logout(SessionId, Impianto);
             AccessClient.Close();
             Print(esito);
-            Assert.IsTrue(esito.EsitoCodice == 0);
+            Assert.IsNotNull(esito);
         }
 
         [TestMethod]
@@ -30,7 +30,7 @@ namespace AquardensUnitTest.wsAccesso
             var esito = AccessClient.GetImpianti(Impianto);
             AccessClient.Close();
             Print(esito);
-            Assert.IsTrue(esito.EsitoCodice == 0);
+            Assert.IsNotNull(esito);
         }
 
         [TestMethod]

@@ -10,6 +10,7 @@ namespace AquardensUnitTest
         protected string SessionId { get; set; }
         protected const string Impianto = "1303";
         protected iAccessClient AccessClient = new iAccessClient();
+        protected iAccess_001Client AccessClient001 = new iAccess_001Client();        
 
         private TestContext testContextInstance;
         
@@ -42,6 +43,31 @@ namespace AquardensUnitTest
             // AccessClient.Close();
             SessionId = esitoLogin.SessionId;
             return esitoLogin;
+        }
+        
+        protected dcEsito DoLogin001()
+        {
+            var user = new dcUser()
+            {
+                UserName = "aquardens",
+                Password = "aquardens",
+                UserType = 400
+            };
+            
+            var clientInfo = new dcClientInfo()
+            {
+                Device = "smartphone",
+                OsName = "Windows",
+                OsVersion = "10.0"
+            };
+            
+            var esito = AccessClient001.Login(new dcBaseRequest()
+            {
+                Impianto = Impianto
+            }, user, clientInfo);
+            
+            SessionId = esito.SessionId;
+            return esito;
         }
     }
 }
