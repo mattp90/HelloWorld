@@ -11,6 +11,7 @@ namespace AquardensUnitTest.wsAccesso
         public void Login()
         {
             var esito = DoLogin001();
+            client.Close();
             Print(esito);
             Assert.IsNotNull(esito);
         }
@@ -24,6 +25,7 @@ namespace AquardensUnitTest.wsAccesso
                 Impianto = Impianto,
                 SessionId = SessionId
             });
+            client.Close();
             Print(esito);
             Assert.IsNotNull(esito);
         }
@@ -37,6 +39,7 @@ namespace AquardensUnitTest.wsAccesso
                 Impianto = Impianto,
                 SessionId = SessionId
             });
+            client.Close();
             Print(esito);
             Assert.IsNotNull(esito);
         }
@@ -50,6 +53,7 @@ namespace AquardensUnitTest.wsAccesso
                 Impianto = Impianto,
                 SessionId = SessionId
             },400);
+            client.Close();
             Print(esito);
             Assert.IsNotNull(esito);
         }
