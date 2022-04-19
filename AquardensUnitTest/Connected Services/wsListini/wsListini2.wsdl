@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://zitaca.com/gridservices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://zitaca.com/gridservices/001" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:i1="http://zitaca.com/gridservices/002" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsListini" targetNamespace="http://zitaca.com/gridservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://zitaca.com/gridservices/001" location="http://zitacatest01.gymgest.it:9130/wsListini.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://zitaca.com/gridservices/002" location="http://zitacatest01.gymgest.it:9130/wsListini.svc?wsdl=wsdl1" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://zitaca.com/gridservices/Imports">
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd3" namespace="http://zitaca.com/gridservices/001" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd4" namespace="http://zitaca.com/gridservices/002" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="iElenchi_GetListini_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListini" />
+  </wsdl:message>
+  <wsdl:message name="iElenchi_GetListini_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListiniResponse" />
+  </wsdl:message>
+  <wsdl:message name="iElenchi_GetListiniFiltered_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListiniFiltered" />
+  </wsdl:message>
+  <wsdl:message name="iElenchi_GetListiniFiltered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListiniFilteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="iElenchi_GetCategorie_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategorie" />
+  </wsdl:message>
+  <wsdl:message name="iElenchi_GetCategorie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategorieResponse" />
+  </wsdl:message>
+  <wsdl:message name="iGestione_AddListini_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddListini" />
+  </wsdl:message>
+  <wsdl:message name="iGestione_AddListini_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddListiniResponse" />
+  </wsdl:message>
+  <wsdl:portType name="iElenchi">
+    <wsdl:operation name="GetListini">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetListini" message="tns:iElenchi_GetListini_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetListiniResponse" message="tns:iElenchi_GetListini_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListiniFiltered">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetListiniFiltered" message="tns:iElenchi_GetListiniFiltered_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetListiniFilteredResponse" message="tns:iElenchi_GetListiniFiltered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategorie">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetCategorie" message="tns:iElenchi_GetCategorie_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iElenchi/GetCategorieResponse" message="tns:iElenchi_GetCategorie_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="iGestione">
+    <wsdl:operation name="AddListini">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iGestione/AddListini" message="tns:iGestione_AddListini_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iGestione/AddListiniResponse" message="tns:iGestione_AddListini_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_iElenchi" type="tns:iElenchi">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListini">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iElenchi/GetListini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListiniFiltered">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iElenchi/GetListiniFiltered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategorie">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iElenchi/GetCategorie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iElenchi_001" type="i0:iElenchi_001">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListini">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iElenchi_001/GetListini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategorie">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iElenchi_001/GetCategorie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iElenchi_002" type="i1:iElenchi_002">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListini">
+      <soap:operation soapAction="http://zitaca.com/gridservices/002/iElenchi_002/GetListini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategorie">
+      <soap:operation soapAction="http://zitaca.com/gridservices/002/iElenchi_002/GetCategorie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListiniCompatibiliRinnovo">
+      <soap:operation soapAction="http://zitaca.com/gridservices/002/iElenchi_002/GetListiniCompatibiliRinnovo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComponentiPacchetto">
+      <soap:operation soapAction="http://zitaca.com/gridservices/002/iElenchi_002/GetComponentiPacchetto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iGestione" type="tns:iGestione">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddListini">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iGestione/AddListini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iGestione_001" type="i0:iGestione_001">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetListino">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iGestione_001/SetListino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsListini">
+    <wsdl:port name="BasicHttpBinding_iElenchi" binding="tns:BasicHttpBinding_iElenchi">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsListini.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iElenchi_001" binding="tns:BasicHttpBinding_iElenchi_001">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsListini.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iElenchi_002" binding="tns:BasicHttpBinding_iElenchi_002">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsListini.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iGestione" binding="tns:BasicHttpBinding_iGestione">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsListini.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iGestione_001" binding="tns:BasicHttpBinding_iGestione_001">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsListini.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

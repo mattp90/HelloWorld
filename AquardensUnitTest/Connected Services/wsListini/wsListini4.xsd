@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/002" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/002" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="GetListini">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q2:dcListinoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListiniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="GetListiniResult" nillable="true" type="q3:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q4:dcBaseRequest" />
+        <xs:element xmlns:q5="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q5:dcCategoriaFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://zitaca.com/gridservices" minOccurs="0" name="GetCategorieResult" nillable="true" type="q6:dcCategorieElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListiniCompatibiliRinnovo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q7:dcBaseRequest" />
+        <xs:element minOccurs="0" name="tipoListino" type="xs:int" />
+        <xs:element minOccurs="0" name="idIscrizione" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListiniCompatibiliRinnovoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://zitaca.com/gridservices" minOccurs="0" name="GetListiniCompatibiliRinnovoResult" nillable="true" type="q8:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComponentiPacchetto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q9:dcBaseRequest" />
+        <xs:element xmlns:q10="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q10:dcComponentiPacchettoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComponentiPacchettoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://zitaca.com/gridservices" minOccurs="0" name="GetComponentiPacchettoResult" nillable="true" type="q11:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

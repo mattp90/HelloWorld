@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/002" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/002" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="GetAcquisti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q2:dcAcquistoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAcquistiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="GetAcquistiResult" nillable="true" type="q3:dcAcquistiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

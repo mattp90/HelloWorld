@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/001" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/001" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="GetListini">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q2:dcListinoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListiniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="GetListiniResult" nillable="true" type="q3:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q4:dcBaseRequest" />
+        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://zitaca.com/gridservices" minOccurs="0" name="GetCategorieResult" nillable="true" type="q5:dcCategorieElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetListino">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q6:dcBaseRequest" />
+        <xs:element xmlns:q7="http://zitaca.com/gridservices" minOccurs="0" name="listino" nillable="true" type="q7:dcListinoCompleto" />
+        <xs:element minOccurs="0" name="visibile" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetListinoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://zitaca.com/gridservices" minOccurs="0" name="SetListinoResult" nillable="true" type="q8:dcEsitoIdBox" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

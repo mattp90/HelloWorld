@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/001" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/001" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsAccesso.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="user" nillable="true" type="q2:dcUser" />
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="info" nillable="true" type="q3:dcClientInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://zitaca.com/gridservices" minOccurs="0" name="LoginResult" nillable="true" type="q4:dcUserEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q5:dcBaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://zitaca.com/gridservices" minOccurs="0" name="LogoutResult" nillable="true" type="q6:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Register">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q7:dcBaseRequest" />
+        <xs:element xmlns:q8="http://zitaca.com/gridservices" minOccurs="0" name="user" nillable="true" type="q8:dcUser" />
+        <xs:element xmlns:q9="http://zitaca.com/gridservices" minOccurs="0" name="info" nillable="true" type="q9:dcClientInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://zitaca.com/gridservices" minOccurs="0" name="RegisterResult" nillable="true" type="q10:dcUserEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q11:dcBaseRequest" />
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://zitaca.com/gridservices" minOccurs="0" name="ChangePasswordResult" nillable="true" type="q12:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpianti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q13:dcBaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpiantiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://zitaca.com/gridservices" minOccurs="0" name="GetImpiantiResult" nillable="true" type="q14:dcImpiantiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDispositivi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q15:dcBaseRequest" />
+        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDispositiviResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://zitaca.com/gridservices" minOccurs="0" name="GetDispositiviResult" nillable="true" type="q16:dcDispositiviEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrivacyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q17:dcBaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrivacyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://zitaca.com/gridservices" minOccurs="0" name="GetPrivacyInfoResult" nillable="true" type="q18:dcPrivacyInfoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmRegister">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q19:dcBaseRequest" />
+        <xs:element xmlns:q20="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q20:dcConfirmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmRegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://zitaca.com/gridservices" minOccurs="0" name="ConfirmRegisterResult" nillable="true" type="q21:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryConfirmCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q22:dcBaseRequest" />
+        <xs:element xmlns:q23="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q23:dcConfirmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryConfirmCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://zitaca.com/gridservices" minOccurs="0" name="RecoveryConfirmCodeResult" nillable="true" type="q24:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q25:dcBaseRequest" />
+        <xs:element xmlns:q26="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q26:dcPasswordRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://zitaca.com/gridservices" minOccurs="0" name="RecoveryPasswordResult" nillable="true" type="q27:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

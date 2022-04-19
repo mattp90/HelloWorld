@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://zitaca.com/gridservices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://zitaca.com/gridservices/001" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:i1="http://zitaca.com/gridservices/002" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsCommerce" targetNamespace="http://zitaca.com/gridservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://zitaca.com/gridservices/001" location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://zitaca.com/gridservices/002" location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?wsdl=wsdl1" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://zitaca.com/gridservices/Imports">
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd2" namespace="http://zitaca.com/gridservices/001" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd3" namespace="http://zitaca.com/gridservices/002" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="iCommerce_Acquista_InputMessage">
+    <wsdl:part name="parameters" element="tns:Acquista" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_Acquista_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_GetPayPalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalId" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_GetPayPalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_VoucherList_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherList" />
+  </wsdl:message>
+  <wsdl:message name="iReport_VoucherList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherListResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_VoucherDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherDetail" />
+  </wsdl:message>
+  <wsdl:message name="iReport_VoucherDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_GetDocumenti_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumenti" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_GetDocumenti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentiResponse" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_SetAcquisiti_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAcquisiti" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_SetAcquisiti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAcquisitiResponse" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_GetDocumentiXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentiXml" />
+  </wsdl:message>
+  <wsdl:message name="iDocumenti_GetDocumentiXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentiXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="iFirmaDigitale_GetSelfSignTexts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelfSignTexts" />
+  </wsdl:message>
+  <wsdl:message name="iFirmaDigitale_GetSelfSignTexts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelfSignTextsResponse" />
+  </wsdl:message>
+  <wsdl:message name="iFirmaDigitale_SetSelfSignText_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSelfSignText" />
+  </wsdl:message>
+  <wsdl:message name="iFirmaDigitale_SetSelfSignText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSelfSignTextResponse" />
+  </wsdl:message>
+  <wsdl:portType name="iCommerce">
+    <wsdl:operation name="Acquista">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iCommerce/Acquista" message="tns:iCommerce_Acquista_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iCommerce/AcquistaResponse" message="tns:iCommerce_Acquista_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalId">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iCommerce/GetPayPalId" message="tns:iCommerce_GetPayPalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iCommerce/GetPayPalIdResponse" message="tns:iCommerce_GetPayPalId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="iReport">
+    <wsdl:operation name="VoucherList">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iReport/VoucherList" message="tns:iReport_VoucherList_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iReport/VoucherListResponse" message="tns:iReport_VoucherList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoucherDetail">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iReport/VoucherDetail" message="tns:iReport_VoucherDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iReport/VoucherDetailResponse" message="tns:iReport_VoucherDetail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="iDocumenti">
+    <wsdl:operation name="GetDocumenti">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iDocumenti/GetDocumenti" message="tns:iDocumenti_GetDocumenti_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iDocumenti/GetDocumentiResponse" message="tns:iDocumenti_GetDocumenti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAcquisiti">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iDocumenti/SetAcquisiti" message="tns:iDocumenti_SetAcquisiti_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iDocumenti/SetAcquisitiResponse" message="tns:iDocumenti_SetAcquisiti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentiXml">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iDocumenti/GetDocumentiXml" message="tns:iDocumenti_GetDocumentiXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iDocumenti/GetDocumentiXmlResponse" message="tns:iDocumenti_GetDocumentiXml_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="iFirmaDigitale">
+    <wsdl:operation name="GetSelfSignTexts">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iFirmaDigitale/GetSelfSignTexts" message="tns:iFirmaDigitale_GetSelfSignTexts_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iFirmaDigitale/GetSelfSignTextsResponse" message="tns:iFirmaDigitale_GetSelfSignTexts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSelfSignText">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/iFirmaDigitale/SetSelfSignText" message="tns:iFirmaDigitale_SetSelfSignText_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/iFirmaDigitale/SetSelfSignTextResponse" message="tns:iFirmaDigitale_SetSelfSignText_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_iCommerce" type="tns:iCommerce">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Acquista">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iCommerce/Acquista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalId">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iCommerce/GetPayPalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iCommerce_001" type="i0:iCommerce_001">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Acquista">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/Acquista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalId">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/GetPayPalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquistaSospesi">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaSospesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNexiConfig">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/GetNexiConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCart">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/TestCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNexiConfig">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/SetNexiConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAcquistaIscrizione">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/TestAcquistaIscrizione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquistaIscrizione">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaIscrizione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherUser">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAsGift">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherAsGift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fruisci">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iCommerce_001/Fruisci" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iReport" type="tns:iReport">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoucherList">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iReport/VoucherList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoucherDetail">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iReport/VoucherDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iReport_001" type="i0:iReport_001">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoucherList">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iReport_001/VoucherList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoucherDetail">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iReport_001/VoucherDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoucherReport">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iReport_001/VoucherReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcquisti">
+      <soap:operation soapAction="http://zitaca.com/gridservices/001/iReport_001/GetAcquisti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iReport_002" type="i1:iReport_002">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAcquisti">
+      <soap:operation soapAction="http://zitaca.com/gridservices/002/iReport_002/GetAcquisti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iDocumenti" type="tns:iDocumenti">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDocumenti">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iDocumenti/GetDocumenti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAcquisiti">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iDocumenti/SetAcquisiti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentiXml">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iDocumenti/GetDocumentiXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_iFirmaDigitale" type="tns:iFirmaDigitale">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSelfSignTexts">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iFirmaDigitale/GetSelfSignTexts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSelfSignText">
+      <soap:operation soapAction="http://zitaca.com/gridservices/iFirmaDigitale/SetSelfSignText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsCommerce">
+    <wsdl:port name="BasicHttpBinding_iCommerce" binding="tns:BasicHttpBinding_iCommerce">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iCommerce_001" binding="tns:BasicHttpBinding_iCommerce_001">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iReport" binding="tns:BasicHttpBinding_iReport">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iReport_001" binding="tns:BasicHttpBinding_iReport_001">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iReport_002" binding="tns:BasicHttpBinding_iReport_002">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iDocumenti" binding="tns:BasicHttpBinding_iDocumenti">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_iFirmaDigitale" binding="tns:BasicHttpBinding_iFirmaDigitale">
+      <soap:address location="http://zitacatest01.gymgest.it:9130/wsCommerce.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

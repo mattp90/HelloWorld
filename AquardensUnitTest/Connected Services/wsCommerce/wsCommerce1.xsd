@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/001" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/001" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="Acquista">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q2:dcOrdineAcquisto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquistaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="AcquistaResult" nillable="true" type="q3:dcAcquistoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayPalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q4:dcBaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayPalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://zitaca.com/gridservices" minOccurs="0" name="GetPayPalIdResult" nillable="true" type="q5:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquistaSospesi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q6:dcBaseRequest" />
+        <xs:element xmlns:q7="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q7:dcOrdineSospesi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquistaSospesiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://zitaca.com/gridservices" minOccurs="0" name="AcquistaSospesiResult" nillable="true" type="q8:dcAcquistoSospesoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNexiConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q9:dcBaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNexiConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://zitaca.com/gridservices" minOccurs="0" name="GetNexiConfigResult" nillable="true" type="q10:dcNexiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q11:dcBaseRequest" />
+        <xs:element xmlns:q12="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q12:dcOrdineAcquisto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://zitaca.com/gridservices" minOccurs="0" name="TestCartResult" nillable="true" type="q13:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNexiConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q14:dcBaseRequest" />
+        <xs:element xmlns:q15="http://zitaca.com/gridservices" minOccurs="0" name="config" nillable="true" type="q15:dcNexiConfig" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNexiConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://zitaca.com/gridservices" minOccurs="0" name="SetNexiConfigResult" nillable="true" type="q16:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestAcquistaIscrizione">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q17:dcBaseRequest" />
+        <xs:element xmlns:q18="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q18:dcOrdineIscrizione" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestAcquistaIscrizioneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://zitaca.com/gridservices" minOccurs="0" name="TestAcquistaIscrizioneResult" nillable="true" type="q19:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquistaIscrizione">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q20:dcBaseRequest" />
+        <xs:element xmlns:q21="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q21:dcOrdineIscrizione" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquistaIscrizioneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://zitaca.com/gridservices" minOccurs="0" name="AcquistaIscrizioneResult" nillable="true" type="q22:dcAcquistoIscrizioneEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVoucherUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q23:dcBaseRequest" />
+        <xs:element minOccurs="0" name="voucherCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://zitaca.com/gridservices" minOccurs="0" name="customerId" nillable="true" type="q24:IdBox" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVoucherUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://zitaca.com/gridservices" minOccurs="0" name="SetVoucherUserResult" nillable="true" type="q25:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVoucherAsGift">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q26:dcBaseRequest" />
+        <xs:element xmlns:q27="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q27:dcVoucherGiftRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVoucherAsGiftResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://zitaca.com/gridservices" minOccurs="0" name="SetVoucherAsGiftResult" nillable="true" type="q28:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Fruisci">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q29:dcBaseRequest" />
+        <xs:element xmlns:q30="http://zitaca.com/gridservices" minOccurs="0" name="ordine" nillable="true" type="q30:dcOrdineAcquisto" />
+        <xs:element xmlns:q31="http://zitaca.com/gridservices" minOccurs="0" name="conto" nillable="true" type="q31:dcConto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FruisciResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://zitaca.com/gridservices" minOccurs="0" name="FruisciResult" nillable="true" type="q32:dcAcquistoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q33:dcBaseRequest" />
+        <xs:element xmlns:q34="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q34:dcReportFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://zitaca.com/gridservices" minOccurs="0" name="VoucherListResult" nillable="true" type="q35:dcVoucherListEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q36:dcBaseRequest" />
+        <xs:element xmlns:q37="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q37:dcVoucherDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://zitaca.com/gridservices" minOccurs="0" name="VoucherDetailResult" nillable="true" type="q38:dcVoucherDetailEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q39:dcBaseRequest" />
+        <xs:element xmlns:q40="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q40:dcReportFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoucherReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://zitaca.com/gridservices" minOccurs="0" name="VoucherReportResult" nillable="true" type="q41:dcVoucherReportEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAcquisti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q42:dcBaseRequest" />
+        <xs:element xmlns:q43="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q43:dcAcquistoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAcquistiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://zitaca.com/gridservices" minOccurs="0" name="GetAcquistiResult" nillable="true" type="q44:dcAcquistiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsListini.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetListini">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListiniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetListiniResult" nillable="true" type="tns:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcListiniElencoEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Elenco" nillable="true" type="tns:ArrayOfdcListino" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcListiniElencoEsito" nillable="true" type="tns:dcListiniElencoEsito" />
+  <xs:complexType name="dcEsito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EsitoCodice" type="xs:int" />
+      <xs:element minOccurs="0" name="EsitoDescriz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EsitoNota" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcEsito" nillable="true" type="tns:dcEsito" />
+  <xs:complexType name="ArrayOfdcListino">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcListino" nillable="true" type="tns:dcListino" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcListino" nillable="true" type="tns:ArrayOfdcListino" />
+  <xs:complexType name="dcListino">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Acconto" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ComponenteInfo" nillable="true" type="tns:dcComponenteInfo" />
+      <xs:element minOccurs="0" name="Costo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disponibilita" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdVoucherScadenza" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Immagine" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPrenotabile" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSingleSale" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Iva" nillable="true" type="tns:dcIva" />
+      <xs:element minOccurs="0" name="Tariffa" nillable="true" type="tns:dcTariffa" />
+      <xs:element minOccurs="0" name="TestoAggiuntivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcListino" nillable="true" type="tns:dcListino" />
+  <xs:complexType name="dcComponenteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categoria" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Quantita" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcComponenteInfo" nillable="true" type="tns:dcComponenteInfo" />
+  <xs:complexType name="InfoBox">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdBox">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InfoBox" nillable="true" type="tns:InfoBox" />
+  <xs:complexType name="IdBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdEsterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdBox" nillable="true" type="tns:IdBox" />
+  <xs:complexType name="dcIva">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:InfoBox">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aliquota" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcIva" nillable="true" type="tns:dcIva" />
+  <xs:complexType name="dcTariffa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdTariffaListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Importo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Rate" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ScontoAbilitato" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcTariffa" nillable="true" type="tns:dcTariffa" />
+  <xs:element name="GetListiniFiltered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="tns:dcListinoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcListinoFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatiAggiuntivi" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdBeachMap" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCategoria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdPersonale" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdTariffe" nillable="true" type="tns:ArrayOfIdBox" />
+      <xs:element minOccurs="0" name="IsGiornoFestivo" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TariffaRichiesta" nillable="true" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TipiListini" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="TipoPagamentoPrenotazione" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Utenza" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcListinoFilter" nillable="true" type="tns:dcListinoFilter" />
+  <xs:complexType name="ArrayOfIdBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdBox" nillable="true" type="tns:IdBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdBox" nillable="true" type="tns:ArrayOfIdBox" />
+  <xs:element name="GetListiniFilteredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetListiniFilteredResult" nillable="true" type="tns:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategorieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCategorieResult" nillable="true" type="tns:dcCategorieElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcCategorieElencoEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Elenco" nillable="true" type="tns:ArrayOfdcCategoria" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcCategorieElencoEsito" nillable="true" type="tns:dcCategorieElencoEsito" />
+  <xs:complexType name="ArrayOfdcCategoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcCategoria" nillable="true" type="tns:dcCategoria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcCategoria" nillable="true" type="tns:ArrayOfdcCategoria" />
+  <xs:complexType name="dcCategoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Immagine" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestoAggiuntivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcCategoria" nillable="true" type="tns:dcCategoria" />
+  <xs:complexType name="dcBaseRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="tns:dcBaseLanguage" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcBaseRequest" nillable="true" type="tns:dcBaseRequest" />
+  <xs:complexType name="dcBaseLanguage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IetfLanguageTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoLetterISOLanguageName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcBaseLanguage" nillable="true" type="tns:dcBaseLanguage" />
+  <xs:complexType name="dcCategoriaFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatiAggiuntivi" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcCategoriaFilter" nillable="true" type="tns:dcCategoriaFilter" />
+  <xs:complexType name="dcComponentiPacchettoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatiAggiuntivi" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdPacchetto" nillable="true" type="tns:IdBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcComponentiPacchettoRequest" nillable="true" type="tns:dcComponentiPacchettoRequest" />
+  <xs:element name="AddListini">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="listini" nillable="true" type="tns:ArrayOfdcListino" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddListiniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddListiniResult" nillable="true" type="tns:dcListiniElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcListinoCompleto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcListino">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcListinoCompleto" nillable="true" type="tns:dcListinoCompleto" />
+  <xs:complexType name="dcEsitoIdBox">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="tns:IdBox" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcEsitoIdBox" nillable="true" type="tns:dcEsitoIdBox" />
+</xs:schema>

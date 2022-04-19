@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Acquista">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ordine" nillable="true" type="tns:dcOrdineAcquisto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcOrdineAcquisto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ControllaCup" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Righe" nillable="true" type="tns:ArrayOfdcOrdineRiga" />
+      <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcOrdineAcquisto" nillable="true" type="tns:dcOrdineAcquisto" />
+  <xs:complexType name="ArrayOfdcOrdineRiga">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcOrdineRiga" nillable="true" type="tns:dcOrdineRiga" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcOrdineRiga" nillable="true" type="tns:ArrayOfdcOrdineRiga" />
+  <xs:complexType name="dcOrdineRiga">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdOperatore" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdPostazione" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdReservation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTariffa" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdTariffaListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Importo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsRegalo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NominativoRegalo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantita" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcOrdineRiga" nillable="true" type="tns:dcOrdineRiga" />
+  <xs:complexType name="IdBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdEsterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdBox" nillable="true" type="tns:IdBox" />
+  <xs:element name="AcquistaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AcquistaResult" nillable="true" type="tns:dcAcquistoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcAcquistoEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Documenti" nillable="true" type="tns:ArrayOfdcDocEmesso" />
+          <xs:element minOccurs="0" name="Voucher" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Vouchers" nillable="true" type="tns:ArrayOfdcVoucherBase" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcAcquistoEsito" nillable="true" type="tns:dcAcquistoEsito" />
+  <xs:complexType name="dcEsito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EsitoCodice" type="xs:int" />
+      <xs:element minOccurs="0" name="EsitoDescriz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EsitoNota" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcEsito" nillable="true" type="tns:dcEsito" />
+  <xs:complexType name="ArrayOfdcDocEmesso">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocEmesso" nillable="true" type="tns:dcDocEmesso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocEmesso" nillable="true" type="tns:ArrayOfdcDocEmesso" />
+  <xs:complexType name="dcDocEmesso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdRagioneSociale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Righe" nillable="true" type="tns:ArrayOfdcOrdineRiga" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocEmesso" nillable="true" type="tns:dcDocEmesso" />
+  <xs:complexType name="ArrayOfdcVoucherBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcVoucherBase" nillable="true" type="tns:dcVoucherBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcVoucherBase" nillable="true" type="tns:ArrayOfdcVoucherBase" />
+  <xs:complexType name="dcVoucherBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeFormatType" type="xs:int" />
+      <xs:element minOccurs="0" name="CodiceVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="DataScadenza" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DescrizListino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdVoucher" nillable="true" type="tns:IdBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcVoucherBase" nillable="true" type="tns:dcVoucherBase" />
+  <xs:element name="GetPayPalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayPalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPayPalIdResult" nillable="true" type="tns:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcBaseRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="tns:dcBaseLanguage" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcBaseRequest" nillable="true" type="tns:dcBaseRequest" />
+  <xs:complexType name="dcBaseLanguage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IetfLanguageTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoLetterISOLanguageName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcBaseLanguage" nillable="true" type="tns:dcBaseLanguage" />
+  <xs:complexType name="dcOrdineSospesi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sospesi" nillable="true" type="tns:ArrayOfdcIncassoSospeso" />
+      <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcOrdineSospesi" nillable="true" type="tns:dcOrdineSospesi" />
+  <xs:complexType name="ArrayOfdcIncassoSospeso">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcIncassoSospeso" nillable="true" type="tns:dcIncassoSospeso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcIncassoSospeso" nillable="true" type="tns:ArrayOfdcIncassoSospeso" />
+  <xs:complexType name="dcIncassoSospeso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anagrafica" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Costo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DataPagare" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdIncassoSospeso" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Listino" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Livello" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="OrariFrequenza" nillable="true" type="tns:ArrayOfdcOrarioFrequenza" />
+      <xs:element minOccurs="0" name="Pagare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TipoListino" type="xs:int" />
+      <xs:element minOccurs="0" name="TutoreMancante" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcIncassoSospeso" nillable="true" type="tns:dcIncassoSospeso" />
+  <xs:complexType name="InfoBox">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdBox">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InfoBox" nillable="true" type="tns:InfoBox" />
+  <xs:complexType name="ArrayOfdcOrarioFrequenza">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcOrarioFrequenza" nillable="true" type="tns:dcOrarioFrequenza" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcOrarioFrequenza" nillable="true" type="tns:ArrayOfdcOrarioFrequenza" />
+  <xs:complexType name="dcOrarioFrequenza">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Corso" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Giorno" type="xs:int" />
+      <xs:element minOccurs="0" name="OraFine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OraInizio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcOrarioFrequenza" nillable="true" type="tns:dcOrarioFrequenza" />
+  <xs:complexType name="dcAcquistoSospesoEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Documenti" nillable="true" type="tns:ArrayOfdcDocEmesso" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcAcquistoSospesoEsito" nillable="true" type="tns:dcAcquistoSospesoEsito" />
+  <xs:complexType name="dcNexiEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AbilitaPagRic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AliasNexi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodeContract" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecretKeyNexi" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcNexiEsito" nillable="true" type="tns:dcNexiEsito" />
+  <xs:complexType name="dcNexiConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeContract" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcNexiConfig" nillable="true" type="tns:dcNexiConfig" />
+  <xs:complexType name="dcOrdineIscrizione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="NumeroOrdine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcOrdineIscrizione" nillable="true" type="tns:dcOrdineIscrizione" />
+  <xs:complexType name="dcAcquistoIscrizioneEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Iscrizione" nillable="true" type="tns:dcIscrizione" />
+          <xs:element minOccurs="0" name="NumeroDocumento" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcAcquistoIscrizioneEsito" nillable="true" type="tns:dcAcquistoIscrizioneEsito" />
+  <xs:complexType name="dcIscrizione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Componenti" nillable="true" type="tns:ArrayOfdcIscrizione" />
+      <xs:element minOccurs="0" name="DataAl" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataDal" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdServizio" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IngressiAcquistati" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IngressiFruiti" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IngressiResidui" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRinnovabile" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RecuperiDisponibili" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RecuperoDataFine" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoGestione" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoIscrizione" type="xs:int" />
+      <xs:element minOccurs="0" name="TutoreMancante" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcIscrizione" nillable="true" type="tns:dcIscrizione" />
+  <xs:complexType name="ArrayOfdcIscrizione">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcIscrizione" nillable="true" type="tns:dcIscrizione" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcIscrizione" nillable="true" type="tns:ArrayOfdcIscrizione" />
+  <xs:complexType name="dcVoucherGiftRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VoucherCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcVoucherGiftRequest" nillable="true" type="tns:dcVoucherGiftRequest" />
+  <xs:complexType name="dcConto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdConto" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="ImportoResiduo" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Riferimento" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="TipoConto" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcConto" nillable="true" type="tns:dcConto" />
+  <xs:element name="VoucherList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="tns:dcReportFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcReportFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Al" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CodiceCUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodiceVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Dal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="TipoRegalo" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcReportFilter" nillable="true" type="tns:dcReportFilter" />
+  <xs:element name="VoucherListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VoucherListResult" nillable="true" type="tns:dcVoucherListEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcVoucherListEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Elenco" nillable="true" type="tns:ArrayOfdcVoucher" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcVoucherListEsito" nillable="true" type="tns:dcVoucherListEsito" />
+  <xs:complexType name="ArrayOfdcVoucher">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcVoucher" nillable="true" type="tns:dcVoucher" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcVoucher" nillable="true" type="tns:ArrayOfdcVoucher" />
+  <xs:complexType name="dcVoucher">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcVoucherBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataFruizione" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataPrenotazione" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+          <xs:element minOccurs="0" name="Importo" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsPacchetto" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPrenotabile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Nominativo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NominativoRegalo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroOrdine" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ora" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrenotazioneAlle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrenotazioneDalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Qt" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TipoRegalo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcVoucher" nillable="true" type="tns:dcVoucher" />
+  <xs:element name="VoucherDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="impianto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:dcVoucherDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcVoucherDetailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodiceVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="DaNumero" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FlagStampa" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Qt" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcVoucherDetailRequest" nillable="true" type="tns:dcVoucherDetailRequest" />
+  <xs:element name="VoucherDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VoucherDetailResult" nillable="true" type="tns:dcVoucherDetailEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcVoucherDetailEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ElencoVoucher" nillable="true" type="tns:ArrayOfdcVoucherDetailVoucher" />
+          <xs:element minOccurs="0" name="TotVoucher" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcVoucherDetailEsito" nillable="true" type="tns:dcVoucherDetailEsito" />
+  <xs:complexType name="ArrayOfdcVoucherDetailVoucher">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcVoucherDetailVoucher" nillable="true" type="tns:dcVoucherDetailVoucher" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcVoucherDetailVoucher" nillable="true" type="tns:ArrayOfdcVoucherDetailVoucher" />
+  <xs:complexType name="dcVoucherDetailVoucher">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeFormatType" type="xs:int" />
+      <xs:element minOccurs="0" name="CodiceVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="ElencoComponenti" nillable="true" type="tns:ArrayOfdcVoucherDetailComponente" />
+      <xs:element minOccurs="0" name="IsStampato" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcVoucherDetailVoucher" nillable="true" type="tns:dcVoucherDetailVoucher" />
+  <xs:complexType name="ArrayOfdcVoucherDetailComponente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcVoucherDetailComponente" nillable="true" type="tns:dcVoucherDetailComponente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcVoucherDetailComponente" nillable="true" type="tns:ArrayOfdcVoucherDetailComponente" />
+  <xs:complexType name="dcVoucherDetailComponente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFruizione" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Importo" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsPrenotabile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Qt" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcVoucherDetailComponente" nillable="true" type="tns:dcVoucherDetailComponente" />
+  <xs:complexType name="dcVoucherReportEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TotVoucherAcquistati" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TotVoucherFruiti" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcVoucherReportEsito" nillable="true" type="tns:dcVoucherReportEsito" />
+  <xs:complexType name="dcAcquistoFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Al" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CodiceCUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="LoadReservations" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TipoAcqusto" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoRegalo" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcAcquistoFilter" nillable="true" type="tns:dcAcquistoFilter" />
+  <xs:complexType name="dcAcquistiEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Elenco" nillable="true" type="tns:ArrayOfdcAcquisto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcAcquistiEsito" nillable="true" type="tns:dcAcquistiEsito" />
+  <xs:complexType name="ArrayOfdcAcquisto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcAcquisto" nillable="true" type="tns:dcAcquisto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcAcquisto" nillable="true" type="tns:ArrayOfdcAcquisto" />
+  <xs:complexType name="dcAcquisto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeFormatType" type="xs:int" />
+      <xs:element minOccurs="0" name="CodiceVoucher" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataAl" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataDal" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataFruizione" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataScadenza" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdItem" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdServizio" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Importo" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsPacchetto" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrenotabile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfdcAcquisto" />
+      <xs:element minOccurs="0" name="NominativoRegalo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ora" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pacchetto" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="PresenzeFruite" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PresenzeMax" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PresenzePrenotate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Qt" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Reservations" nillable="true" type="tns:ArrayOfdcReservation" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoRegalo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcAcquisto" nillable="true" type="tns:dcAcquisto" />
+  <xs:complexType name="ArrayOfdcReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcReservation" nillable="true" type="tns:dcReservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcReservation" nillable="true" type="tns:ArrayOfdcReservation" />
+  <xs:complexType name="dcReservation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcReservationItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Anagrafica" nillable="true" type="tns:InfoBox" />
+          <xs:element minOccurs="0" name="DataOraFine" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataOraInizio" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fila" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HotelPrenotazione" nillable="true" type="tns:dcHotelPrenotazione" />
+          <xs:element minOccurs="0" name="IdIscrizione" nillable="true" type="tns:IdBox" />
+          <xs:element minOccurs="0" name="IdReservation" nillable="true" type="tns:IdBox" />
+          <xs:element minOccurs="0" name="IngResiduiIscriz" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsFruito" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Mappa" nillable="true" type="tns:InfoBox" />
+          <xs:element minOccurs="0" name="Nota" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotaPrescrizione" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotaTrattamento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumPiaz" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Personale" nillable="true" type="tns:InfoBox" />
+          <xs:element minOccurs="0" name="Riga" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Spazio" nillable="true" type="tns:InfoBox" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoConferma" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcReservation" nillable="true" type="tns:dcReservation" />
+  <xs:complexType name="dcReservationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdOrario" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="ItemPrenotStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Livello" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Posti" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PostiOccupati" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcReservationItem" nillable="true" type="tns:dcReservationItem" />
+  <xs:complexType name="dcHotelPrenotazione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataInizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdHotel" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdReservation" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nominativo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NrPersone" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroCamera" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoPrenotazione" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcHotelPrenotazione" nillable="true" type="tns:dcHotelPrenotazione" />
+  <xs:element name="GetDocumenti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="base" nillable="true" type="tns:dcBaseRequest" />
+        <xs:element minOccurs="0" name="filterDocumenti" nillable="true" type="tns:dcDocumentoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcDocumentoFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AData" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DaData" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentiAnagObbligatoria" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdGruppoFatturazione" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdRagioneSociale" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Impianto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonAcquisiti" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TipiDocumento" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocumentoFilter" nillable="true" type="tns:dcDocumentoFilter" />
+  <xs:element name="GetDocumentiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentiResult" nillable="true" type="tns:dcDocumentiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcDocumentiEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ElencoDocumenti" nillable="true" type="tns:ArrayOfdcDocumento" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcDocumentiEsito" nillable="true" type="tns:dcDocumentiEsito" />
+  <xs:complexType name="ArrayOfdcDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocumento" nillable="true" type="tns:dcDocumento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocumento" nillable="true" type="tns:ArrayOfdcDocumento" />
+  <xs:complexType name="dcDocumento">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcDocumentoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AliquoteElenco" nillable="true" type="tns:ArrayOfdcDocumentoIva" />
+          <xs:element minOccurs="0" name="CAP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodiceFidelity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodiceFiscale" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodiceMonetica" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodiceNazioneIso2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comune" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdGruppoFatturazione" nillable="true" type="tns:IdBox" />
+          <xs:element minOccurs="0" name="IdRagioneSociale" nillable="true" type="tns:IdBox" />
+          <xs:element minOccurs="0" name="ImportoTotaleDocumento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Indirizzo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Localita" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroChiusuraEcr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PagamentiElenco" nillable="true" type="tns:ArrayOfdcDocumentoPagamento" />
+          <xs:element minOccurs="0" name="PartitaIva" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RiferimentoEcr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RigheElenco" nillable="true" type="tns:ArrayOfdcDocumentoRiga" />
+          <xs:element minOccurs="0" name="ScontiMaggiorazioni" nillable="true" type="tns:ArrayOfdcScontoMaggiorazione" />
+          <xs:element minOccurs="0" name="TipoDocumentoRT" type="xs:int" />
+          <xs:element minOccurs="0" name="TipoGestione" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcDocumento" nillable="true" type="tns:dcDocumento" />
+  <xs:complexType name="dcDocumentoBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataEmissione" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdDocumento" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prefisso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RagSocCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suffisso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoAnagrafica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="tns:TypeBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocumentoBase" nillable="true" type="tns:dcDocumentoBase" />
+  <xs:complexType name="TypeBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoEsterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TypeBox" nillable="true" type="tns:TypeBox" />
+  <xs:complexType name="ArrayOfdcDocumentoIva">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocumentoIva" nillable="true" type="tns:dcDocumentoIva" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocumentoIva" nillable="true" type="tns:ArrayOfdcDocumentoIva" />
+  <xs:complexType name="dcDocumentoIva">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aliquota" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CodiceNorma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCodiceIva" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Imponibile" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Imposta" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocumentoIva" nillable="true" type="tns:dcDocumentoIva" />
+  <xs:complexType name="ArrayOfdcDocumentoPagamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocumentoPagamento" nillable="true" type="tns:dcDocumentoPagamento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocumentoPagamento" nillable="true" type="tns:ArrayOfdcDocumentoPagamento" />
+  <xs:complexType name="dcDocumentoPagamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdFormaPagamento" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Importo" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocumentoPagamento" nillable="true" type="tns:dcDocumentoPagamento" />
+  <xs:complexType name="ArrayOfdcDocumentoRiga">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocumentoRiga" nillable="true" type="tns:dcDocumentoRiga" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocumentoRiga" nillable="true" type="tns:ArrayOfdcDocumentoRiga" />
+  <xs:complexType name="dcDocumentoRiga">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CentroRicavo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCodiceIva" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdListino" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="Importo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PianoDeiConti" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qt" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcDocumentoRiga" nillable="true" type="tns:dcDocumentoRiga" />
+  <xs:complexType name="ArrayOfdcScontoMaggiorazione">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcScontoMaggiorazione" nillable="true" type="tns:dcScontoMaggiorazione" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcScontoMaggiorazione" nillable="true" type="tns:ArrayOfdcScontoMaggiorazione" />
+  <xs:complexType name="dcScontoMaggiorazione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Importo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tipo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcScontoMaggiorazione" nillable="true" type="tns:dcScontoMaggiorazione" />
+  <xs:element name="SetAcquisiti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="base" nillable="true" type="tns:dcBaseRequest" />
+        <xs:element minOccurs="0" name="elencoDocumenti" nillable="true" type="tns:ArrayOfIdBox" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfIdBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdBox" nillable="true" type="tns:IdBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdBox" nillable="true" type="tns:ArrayOfIdBox" />
+  <xs:element name="SetAcquisitiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAcquisitiResult" nillable="true" type="tns:dcDocumentiAcquisitiEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcDocumentiAcquisitiEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ElencoDocumentiInErrore" nillable="true" type="q3:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcDocumentiAcquisitiEsito" nillable="true" type="tns:dcDocumentiAcquisitiEsito" />
+  <xs:element name="GetDocumentiXml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="base" nillable="true" type="tns:dcBaseRequest" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="tns:dcDocumentoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentiXmlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentiXmlResult" nillable="true" type="tns:dcDocumentiXmlEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcDocumentiXmlEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ElencoDocumentiXml" nillable="true" type="tns:ArrayOfdcDocumentoXml" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcDocumentiXmlEsito" nillable="true" type="tns:dcDocumentiXmlEsito" />
+  <xs:complexType name="ArrayOfdcDocumentoXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcDocumentoXml" nillable="true" type="tns:dcDocumentoXml" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcDocumentoXml" nillable="true" type="tns:ArrayOfdcDocumentoXml" />
+  <xs:complexType name="dcDocumentoXml">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcDocumentoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Xml" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcDocumentoXml" nillable="true" type="tns:dcDocumentoXml" />
+  <xs:element name="GetSelfSignTexts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="base" nillable="true" type="tns:dcBaseRequest" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="tns:dcSelfSignTextFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcSelfSignTextFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataAl" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataDal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAnagrafica" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdDispositivo" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="IdSelfSignText" nillable="true" type="tns:IdBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcSelfSignTextFilter" nillable="true" type="tns:dcSelfSignTextFilter" />
+  <xs:element name="GetSelfSignTextsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSelfSignTextsResult" nillable="true" type="tns:dcSelfSignTextsEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dcSelfSignTextsEsito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dcEsito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Testi" nillable="true" type="tns:ArrayOfdcSelfSignText" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dcSelfSignTextsEsito" nillable="true" type="tns:dcSelfSignTextsEsito" />
+  <xs:complexType name="ArrayOfdcSelfSignText">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcSelfSignText" nillable="true" type="tns:dcSelfSignText" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcSelfSignText" nillable="true" type="tns:ArrayOfdcSelfSignText" />
+  <xs:complexType name="dcSelfSignText">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anagrafica" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="DataCreazione" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataFirma" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Firma" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="IsAzienda" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Lingua" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="Logo" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="SelfSignText" nillable="true" type="tns:InfoBox" />
+      <xs:element minOccurs="0" name="SelfSignTextRighe" nillable="true" type="tns:ArrayOfdcSelfSignTextRow" />
+      <xs:element minOccurs="0" name="Titolo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcSelfSignText" nillable="true" type="tns:dcSelfSignText" />
+  <xs:complexType name="ArrayOfdcSelfSignTextRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcSelfSignTextRow" nillable="true" type="tns:dcSelfSignTextRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcSelfSignTextRow" nillable="true" type="tns:ArrayOfdcSelfSignTextRow" />
+  <xs:complexType name="dcSelfSignTextRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbilitaFirmaPrivacy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirmaPrivacy" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="IdFlagPrivacy" nillable="true" type="tns:IdBox" />
+      <xs:element minOccurs="0" name="SelfSignTextAnag" nillable="true" type="tns:ArrayOfdcSelfSignTextAnag" />
+      <xs:element minOccurs="0" name="Testo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoCampoPrivacy" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoRiga" type="xs:int" />
+      <xs:element minOccurs="0" name="Titolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValorePrivacy" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcSelfSignTextRow" nillable="true" type="tns:dcSelfSignTextRow" />
+  <xs:complexType name="ArrayOfdcSelfSignTextAnag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dcSelfSignTextAnag" nillable="true" type="tns:dcSelfSignTextAnag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdcSelfSignTextAnag" nillable="true" type="tns:ArrayOfdcSelfSignTextAnag" />
+  <xs:complexType name="dcSelfSignTextAnag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsModificabile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TipoCampoAnag" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoValoreCampo" type="xs:int" />
+      <xs:element minOccurs="0" name="ValoreBool" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValoreData" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValoreIntero" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ValoreStringa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dcSelfSignTextAnag" nillable="true" type="tns:dcSelfSignTextAnag" />
+  <xs:element name="SetSelfSignText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="base" nillable="true" type="tns:dcBaseRequest" />
+        <xs:element minOccurs="0" name="doc" nillable="true" type="tns:dcSelfSignText" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSelfSignTextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetSelfSignTextResult" nillable="true" type="tns:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

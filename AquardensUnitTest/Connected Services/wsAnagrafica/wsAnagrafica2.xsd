@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://zitaca.com/gridservices/001" elementFormDefault="qualified" targetNamespace="http://zitaca.com/gridservices/001" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsAnagrafica.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+  <xs:element name="Aggiungi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q1:dcBaseRequest" />
+        <xs:element xmlns:q2="http://zitaca.com/gridservices" minOccurs="0" name="anag" nillable="true" type="q2:dcAnagraficaCompleta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AggiungiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://zitaca.com/gridservices" minOccurs="0" name="AggiungiResult" nillable="true" type="q3:dcAnagraficaEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Modifica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q4:dcBaseRequest" />
+        <xs:element xmlns:q5="http://zitaca.com/gridservices" minOccurs="0" name="anag" nillable="true" type="q5:dcAnagraficaCompleta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://zitaca.com/gridservices" minOccurs="0" name="ModificaResult" nillable="true" type="q6:dcAnagraficaEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadUserFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q7:dcBaseRequest" />
+        <xs:element xmlns:q8="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q8:dcFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadUserFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://zitaca.com/gridservices" minOccurs="0" name="UploadUserFileResult" nillable="true" type="q9:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUserNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q10:dcBaseRequest" />
+        <xs:element xmlns:q11="http://zitaca.com/gridservices" minOccurs="0" name="request" nillable="true" type="q11:dcNoteRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUserNoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://zitaca.com/gridservices" minOccurs="0" name="SetUserNoteResult" nillable="true" type="q12:dcEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIscrizioni">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q13:dcBaseRequest" />
+        <xs:element xmlns:q14="http://zitaca.com/gridservices" minOccurs="0" name="idAnagrafica" nillable="true" type="q14:IdBox" />
+        <xs:element minOccurs="0" name="loadAll" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIscrizioniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://zitaca.com/gridservices" minOccurs="0" name="GetIscrizioniResult" nillable="true" type="q15:dcIscrizioneEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnagrafiche">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q16:dcBaseRequest" />
+        <xs:element xmlns:q17="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q17:dcAnagraficaFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnagraficheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://zitaca.com/gridservices" minOccurs="0" name="GetAnagraficheResult" nillable="true" type="q18:dcAnagraficaCompletaEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPagamentiSospesi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q19:dcBaseRequest" />
+        <xs:element xmlns:q20="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q20:dcPagamentoSospesoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPagamentiSospesiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://zitaca.com/gridservices" minOccurs="0" name="GetPagamentiSospesiResult" nillable="true" type="q21:dcIncassiSospesiElencoEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://zitaca.com/gridservices" minOccurs="0" name="base" nillable="true" type="q22:dcBaseRequest" />
+        <xs:element xmlns:q23="http://zitaca.com/gridservices" minOccurs="0" name="filter" nillable="true" type="q23:dcMemberCardFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://zitaca.com/gridservices" minOccurs="0" name="GetMemberCardResult" nillable="true" type="q24:dcMemberCardEsito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

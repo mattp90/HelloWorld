@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://zitaca.com/gridservices/001" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://zitaca.com/gridservices/001" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://zitaca.com/gridservices/001/Imports">
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd2" namespace="http://zitaca.com/gridservices/001" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd0" namespace="http://zitaca.com/gridservices" />
+      <xsd:import schemaLocation="http://zitacatest01.gymgest.it:9130/wsCommerce.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="iCommerce_001_Acquista_InputMessage">
+    <wsdl:part name="parameters" element="tns:Acquista" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_Acquista_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_GetPayPalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalId" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_GetPayPalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_AcquistaSospesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaSospesi" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_AcquistaSospesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaSospesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_GetNexiConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNexiConfig" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_GetNexiConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNexiConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_TestCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCart" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_TestCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetNexiConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNexiConfig" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetNexiConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNexiConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_TestAcquistaIscrizione_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestAcquistaIscrizione" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_TestAcquistaIscrizione_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestAcquistaIscrizioneResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_AcquistaIscrizione_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaIscrizione" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_AcquistaIscrizione_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquistaIscrizioneResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetVoucherUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVoucherUser" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetVoucherUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVoucherUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetVoucherAsGift_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVoucherAsGift" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_SetVoucherAsGift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVoucherAsGiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_Fruisci_InputMessage">
+    <wsdl:part name="parameters" element="tns:Fruisci" />
+  </wsdl:message>
+  <wsdl:message name="iCommerce_001_Fruisci_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FruisciResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherList_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherList" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherListResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherDetail" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherReport" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_VoucherReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoucherReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_GetAcquisti_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAcquisti" />
+  </wsdl:message>
+  <wsdl:message name="iReport_001_GetAcquisti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAcquistiResponse" />
+  </wsdl:message>
+  <wsdl:portType name="iCommerce_001">
+    <wsdl:operation name="Acquista">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/Acquista" message="tns:iCommerce_001_Acquista_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaResponse" message="tns:iCommerce_001_Acquista_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalId">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/GetPayPalId" message="tns:iCommerce_001_GetPayPalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/GetPayPalIdResponse" message="tns:iCommerce_001_GetPayPalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquistaSospesi">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaSospesi" message="tns:iCommerce_001_AcquistaSospesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaSospesiResponse" message="tns:iCommerce_001_AcquistaSospesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNexiConfig">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/GetNexiConfig" message="tns:iCommerce_001_GetNexiConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/GetNexiConfigResponse" message="tns:iCommerce_001_GetNexiConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCart">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/TestCart" message="tns:iCommerce_001_TestCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/TestCartResponse" message="tns:iCommerce_001_TestCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNexiConfig">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetNexiConfig" message="tns:iCommerce_001_SetNexiConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetNexiConfigResponse" message="tns:iCommerce_001_SetNexiConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAcquistaIscrizione">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/TestAcquistaIscrizione" message="tns:iCommerce_001_TestAcquistaIscrizione_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/TestAcquistaIscrizioneResponse" message="tns:iCommerce_001_TestAcquistaIscrizione_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquistaIscrizione">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaIscrizione" message="tns:iCommerce_001_AcquistaIscrizione_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/AcquistaIscrizioneResponse" message="tns:iCommerce_001_AcquistaIscrizione_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherUser">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherUser" message="tns:iCommerce_001_SetVoucherUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherUserResponse" message="tns:iCommerce_001_SetVoucherUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAsGift">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherAsGift" message="tns:iCommerce_001_SetVoucherAsGift_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/SetVoucherAsGiftResponse" message="tns:iCommerce_001_SetVoucherAsGift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Fruisci">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/Fruisci" message="tns:iCommerce_001_Fruisci_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iCommerce_001/FruisciResponse" message="tns:iCommerce_001_Fruisci_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="iReport_001">
+    <wsdl:operation name="VoucherList">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherList" message="tns:iReport_001_VoucherList_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherListResponse" message="tns:iReport_001_VoucherList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoucherDetail">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherDetail" message="tns:iReport_001_VoucherDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherDetailResponse" message="tns:iReport_001_VoucherDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoucherReport">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherReport" message="tns:iReport_001_VoucherReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/VoucherReportResponse" message="tns:iReport_001_VoucherReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAcquisti">
+      <wsdl:input wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/GetAcquisti" message="tns:iReport_001_GetAcquisti_InputMessage" />
+      <wsdl:output wsaw:Action="http://zitaca.com/gridservices/001/iReport_001/GetAcquistiResponse" message="tns:iReport_001_GetAcquisti_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
